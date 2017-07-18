@@ -1,7 +1,0 @@
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\bin\Debug\LexicalAnalyzer.dll
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\bin\Debug\LexicalAnalyzer.pdb
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\bin\Debug\TokenLibrary.dll
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\bin\Debug\TokenLibrary.pdb
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\obj\Debug\Lexical Analyzer.csprojResolveAssemblyReference.cache
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\obj\Debug\LexicalAnalyzer.dll
-C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\obj\Debug\LexicalAnalyzer.pdb
