@@ -31,10 +31,15 @@
             this.Code = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.gvLexical = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lexeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvLexicalErrors = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).BeginInit();
             this.SuspendLayout();
             // 
             // Code
@@ -64,6 +69,7 @@
             this.gvLexical.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvLexical.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvLexical.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Lexeme,
             this.Token,
             this.Description});
@@ -72,6 +78,15 @@
             this.gvLexical.RowHeadersVisible = false;
             this.gvLexical.Size = new System.Drawing.Size(302, 150);
             this.gvLexical.TabIndex = 2;
+            // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ID.Width = 30;
             // 
             // Lexeme
             // 
@@ -94,18 +109,48 @@
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
+            // gvLexicalErrors
+            // 
+            this.gvLexicalErrors.AllowUserToAddRows = false;
+            this.gvLexicalErrors.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gvLexicalErrors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvLexicalErrors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Errors});
+            this.gvLexicalErrors.Location = new System.Drawing.Point(522, 348);
+            this.gvLexicalErrors.Name = "gvLexicalErrors";
+            this.gvLexicalErrors.RowHeadersVisible = false;
+            this.gvLexicalErrors.Size = new System.Drawing.Size(302, 150);
+            this.gvLexicalErrors.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // Errors
+            // 
+            this.Errors.HeaderText = "Errors";
+            this.Errors.Name = "Errors";
+            this.Errors.ReadOnly = true;
+            this.Errors.Width = 268;
+            // 
             // ROOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(832, 563);
+            this.Controls.Add(this.gvLexicalErrors);
             this.Controls.Add(this.gvLexical);
             this.Controls.Add(this.btnRun);
             this.Controls.Add(this.Code);
             this.Name = "ROOK";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,9 +161,13 @@
         private System.Windows.Forms.TextBox Code;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.DataGridView gvLexical;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lexeme;
         private System.Windows.Forms.DataGridViewTextBoxColumn Token;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridView gvLexicalErrors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Errors;
     }
 }
 

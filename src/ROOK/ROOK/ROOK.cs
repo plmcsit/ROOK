@@ -39,11 +39,33 @@ namespace ROOK
 
         private void DisplayLexical(LexicalAnalyzer lex)
         {
+            int error = 0, id = 0;
             gvLexical.Rows.Clear();
+            gvLexicalErrors.Rows.Clear();
 
-            foreach (var item in lex.tokens)
+            foreach (var token in lex.tokens)
             {
-                gvLexical.Rows.Add(item.getTokens(), item.getLexemes(), item.getDescription());
+                if (token.getTokens() == "INVALID")
+                {
+                    error++;
+                    gvLexicalErrors.Rows.Add(error, "Invalid input: "
+                                + token.getLexemes()
+                                + " on line "
+                                + token.getLines() + "\n");
+                }
+                else if (token.getTokens() == "No Delimiter")
+                {
+                    error++;
+                    gvLexicalErrors.Rows.Add(error, "Proper delimiter expected: "
+                                + token.getLexemes()
+                                + " on line "
+                                + token.getLines() + "\n");
+                }
+                else
+                {
+                    id++;
+                    gvLexical.Rows.Add(id, token.getTokens(), token.getLexemes(), token.getDescription());
+                }
             }
         }
     }

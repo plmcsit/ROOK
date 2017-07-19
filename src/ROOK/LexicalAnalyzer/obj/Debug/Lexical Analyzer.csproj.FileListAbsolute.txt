@@ -5,3 +5,10 @@ C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\bin
 C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\obj\Debug\Lexical Analyzer.csprojResolveAssemblyReference.cache
 C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\obj\Debug\LexicalAnalyzer.dll
 C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\LexicalAnalyzer\obj\Debug\LexicalAnalyzer.pdb
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\bin\Debug\LexicalAnalyzer.dll
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\bin\Debug\LexicalAnalyzer.pdb
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\bin\Debug\TokenLibrary.dll
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\bin\Debug\TokenLibrary.pdb
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\obj\Debug\Lexical Analyzer.csprojResolveAssemblyReference.cache
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\obj\Debug\LexicalAnalyzer.dll
+D:\PLMCSIT\ROOK\src\ROOK\LexicalAnalyzer\obj\Debug\LexicalAnalyzer.pdb

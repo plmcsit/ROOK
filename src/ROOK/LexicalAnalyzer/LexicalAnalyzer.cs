@@ -16,8 +16,8 @@ namespace Lexical_Analyzer
     {
         public List<Tokens> tokens = new List<Tokens>();
         public List<int> linetokens = new List<int>();
-        public int ctra = 0;
-        int idNum = 1;
+        public int ctra = 0, choice = 0;
+        int idNum = 1, lines = 1;
 
         public Boolean isSpace(string txt)
         {
@@ -34,6 +34,7 @@ namespace Lexical_Analyzer
             }
             else if (txt.ElementAt(0) == '\n')
             {
+                lines++;
                 ctra = 1;
                 hasSpace = true;
             }
@@ -306,7 +307,7 @@ namespace Lexical_Analyzer
                                     {
                                         foreach(char delim in delims)
                                         {
-                                            if ((txt.Length - 1) >= ctr)
+                                            if ((txt.Length - 1) > ctr)
                                             {
 
                                                 if (txt[flag + 1] == delim)
@@ -355,7 +356,9 @@ namespace Lexical_Analyzer
 
             Boolean hasToken = false, validstr = false, numNext = true, decLit = false, numLit = false, isNum = true;
 
-            int ctr = 0, choice = 0, digitNum = 0, digitDec = 0;
+            int ctr = 0, digitNum = 0, digitDec = 0;
+
+            choice = 0;
 
             if (txt.ElementAt(0).Equals('"')) choice = 1;
             else
@@ -616,7 +619,7 @@ namespace Lexical_Analyzer
                     validID = false;
                     foreach (char n in id.allIn)
                     {
-                        if ((txt.Length - 1) > ctr)
+                        if ((txt.Length - 1) >= ctr)
                             if (txt.ElementAt(ctr) == n)
                             {
                                 ctr++;
