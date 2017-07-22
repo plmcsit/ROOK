@@ -3,3 +3,8 @@ C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\TokenLibrary\bin\De
 C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\TokenLibrary\obj\Debug\Token Library.csprojResolveAssemblyReference.cache
 C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\TokenLibrary\obj\Debug\TokenLibrary.dll
 C:\Users\Windows7\Documents\Visual Studio 2017\Projects\ROOK\TokenLibrary\obj\Debug\TokenLibrary.pdb
+D:\PLMCSIT\ROOK\src\ROOK\TokenLibrary\bin\Debug\TokenLibrary.dll
+D:\PLMCSIT\ROOK\src\ROOK\TokenLibrary\bin\Debug\TokenLibrary.pdb
+D:\PLMCSIT\ROOK\src\ROOK\TokenLibrary\obj\Debug\Token Library.csprojResolveAssemblyReference.cache
+D:\PLMCSIT\ROOK\src\ROOK\TokenLibrary\obj\Debug\TokenLibrary.dll
+D:\PLMCSIT\ROOK\src\ROOK\TokenLibrary\obj\Debug\TokenLibrary.pdb
