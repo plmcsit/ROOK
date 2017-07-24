@@ -19,7 +19,7 @@ namespace Lexical_Analyzer
         public int ctra = 0, choice = 0;
         int idNum = 1, lines = 1;
 
-        public Boolean isSpace(string txt)
+        public Boolean isSpace(string txt, int tnum)
         {
             Boolean hasSpace = false;
             if (txt.ElementAt(0) == ' ')
@@ -29,14 +29,13 @@ namespace Lexical_Analyzer
             } 
             else if (txt.ElementAt(0) == '\r')
             {
-                ctra = 1;
-                hasSpace = true;
-            }
-            else if (txt.ElementAt(0) == '\n')
-            {
-                lines++;
-                ctra = 1;
-                hasSpace = true;
+                if (txt.ElementAt(1) == '\n')
+                {
+                    lines++;
+                    ctra = 2;
+                    linetokens.Add(tnum);
+                    hasSpace = true;
+                }
             }
             return hasSpace;
         }
@@ -64,6 +63,16 @@ namespace Lexical_Analyzer
                 {
                     if (end == txt.ElementAt(a))
                     {
+                        if (a == 0)
+                        {
+                            if (txt.ElementAt(a) == '!') break;
+                        }
+                        if (a == 3)
+                        {
+                            if (txt.ElementAt(0) == 'E' && txt.ElementAt(1) == 'N' && txt.ElementAt(2) == 'D' && txt.ElementAt(a) == '!')
+                                break;
+                        }
+                        
                         hasToken = true;
                     }
                 }
@@ -645,8 +654,8 @@ namespace Lexical_Analyzer
 
                 if (moreThan)
                 {
-                    token.setTokens("Exceeded");
-                    token.setLexemes(txt.Substring(0, (ctr + 1)));
+                    token.setTokens("I Exceeded");
+                    token.setLexemes(txt.Substring(0, (ctr)));
                     token.setDescription("identifier" + idNum);
                     tokens.Add(token);
                     idNum++;

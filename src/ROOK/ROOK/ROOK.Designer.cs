@@ -38,6 +38,7 @@
             this.gvLexicalErrors = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.richTextBoxEx1 = new Ionic.WinForms.RichTextBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).BeginInit();
             this.SuspendLayout();
@@ -137,12 +138,35 @@
             this.Errors.ReadOnly = true;
             this.Errors.Width = 268;
             // 
+            // richTextBoxEx1
+            // 
+            this.richTextBoxEx1.AcceptsTab = true;
+            this.richTextBoxEx1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxEx1.Location = new System.Drawing.Point(12, 38);
+            this.richTextBoxEx1.Name = "richTextBoxEx1";
+            this.richTextBoxEx1.NumberAlignment = System.Drawing.StringAlignment.Center;
+            this.richTextBoxEx1.NumberBackground1 = System.Drawing.SystemColors.ControlLight;
+            this.richTextBoxEx1.NumberBackground2 = System.Drawing.SystemColors.Window;
+            this.richTextBoxEx1.NumberBorder = System.Drawing.SystemColors.ControlDark;
+            this.richTextBoxEx1.NumberBorderThickness = 1F;
+            this.richTextBoxEx1.NumberColor = System.Drawing.Color.DarkGray;
+            this.richTextBoxEx1.NumberFont = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxEx1.NumberLeadingZeroes = false;
+            this.richTextBoxEx1.NumberLineCounting = Ionic.WinForms.RichTextBoxEx.LineCounting.CRLF;
+            this.richTextBoxEx1.NumberPadding = 2;
+            this.richTextBoxEx1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBoxEx1.ShowLineNumbers = true;
+            this.richTextBoxEx1.Size = new System.Drawing.Size(473, 438);
+            this.richTextBoxEx1.TabIndex = 4;
+            this.richTextBoxEx1.Text = "";
+            // 
             // ROOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(832, 563);
+            this.Controls.Add(this.richTextBoxEx1);
             this.Controls.Add(this.gvLexicalErrors);
             this.Controls.Add(this.gvLexical);
             this.Controls.Add(this.btnRun);
@@ -168,6 +192,7 @@
         private System.Windows.Forms.DataGridView gvLexicalErrors;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Errors;
+        private Ionic.WinForms.RichTextBoxEx richTextBoxEx1;
     }
 }
 

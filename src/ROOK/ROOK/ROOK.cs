@@ -61,6 +61,14 @@ namespace ROOK
                                 + " on line "
                                 + token.getLines() + "\n");
                 }
+                else if (token.getTokens() == "I Exceeded")
+                {
+                    error++;
+                    gvLexicalErrors.Rows.Add(error, "Identifier exceeded: "
+                                + token.getLexemes()
+                                + " on line "
+                                + token.getLines() + "\n");
+                }
                 else
                 {
                     id++;
