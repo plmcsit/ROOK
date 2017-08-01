@@ -24,9 +24,9 @@ namespace ROOK
         {
             LexicalInitializer lexical = new LexicalInitializer();
             LexicalAnalyzer lex = new LexicalAnalyzer();
-            if (!Code.Text.Equals(""))
+            if (!txtCode.Text.Equals(""))
             {
-                string code = Code.Text;
+                string code = txtCode.Text;
                 lex = lexical.Start(code, lex);
                  DisplayLexical(lex);
             } 
@@ -57,6 +57,22 @@ namespace ROOK
                 {
                     error++;
                     gvLexicalErrors.Rows.Add(error, "Proper delimiter expected: "
+                                + token.getLexemes()
+                                + " on line "
+                                + token.getLines() + "\n");
+                }
+                else if (token.getTokens() == "I Exceeded")
+                {
+                    error++;
+                    gvLexicalErrors.Rows.Add(error, "Identifier exceeded: "
+                                + token.getLexemes()
+                                + " on line "
+                                + token.getLines() + "\n");
+                }
+                else if (token.getTokens() == "Over the limit")
+                {
+                    error++;
+                    gvLexicalErrors.Rows.Add(error, "Literal exceeded: "
                                 + token.getLexemes()
                                 + " on line "
                                 + token.getLines() + "\n");

@@ -19,7 +19,7 @@ namespace Lexical_Analyzer
         public int ctra = 0, choice = 0;
         int idNum = 1, lines = 1;
 
-        public Boolean isSpace(string txt)
+        public Boolean isSpace(string txt, int tnum)
         {
             Boolean hasSpace = false;
             if (txt.ElementAt(0) == ' ')
@@ -27,16 +27,12 @@ namespace Lexical_Analyzer
                 ctra = 1;
                 hasSpace = true;
             } 
-            else if (txt.ElementAt(0) == '\r')
-            {
-                ctra = 1;
-                hasSpace = true;
-            }
             else if (txt.ElementAt(0) == '\n')
             {
-                lines++;
-                ctra = 1;
-                hasSpace = true;
+                    lines++;
+                    ctra = 1;
+                    linetokens.Add(tnum);
+                    hasSpace = true;
             }
             return hasSpace;
         }
@@ -64,6 +60,16 @@ namespace Lexical_Analyzer
                 {
                     if (end == txt.ElementAt(a))
                     {
+                        if (a == 0)
+                        {
+                            if (txt.ElementAt(a) == '!') break;
+                        }
+                        if (a == 3)
+                        {
+                            if (txt.ElementAt(0) == 'E' && txt.ElementAt(1) == 'N' && txt.ElementAt(2) == 'D' && txt.ElementAt(a) == '!')
+                                break;
+                        }
+                        
                         hasToken = true;
                     }
                 }
@@ -181,6 +187,34 @@ namespace Lexical_Analyzer
 
             ctra = ctr;
             return hasToken;
+        }
+
+        public Boolean Comment(string txt)
+        {
+            int ctr=0;
+            Boolean isComment = false, endComment = false;
+            if (txt.Length > 2)
+            {
+                if (txt.ElementAt(0) == '/' && txt.ElementAt(1) == '/')
+                {
+                    ctr = 1;
+                    if (txt.Length - 1 > ctr)
+                    {
+                        while (!endComment)
+                        {
+                            if (txt.ElementAt(ctr + 1) == '\n')
+                            {
+                                endComment = true;
+                            }
+                            isComment = true;
+                            ctr++;
+                        }
+                    }
+                    lines++;
+                }
+            }
+            ctra = ctr;
+            return isComment;
         }
 
         public Boolean ReservedSymbols(string txt)
@@ -354,7 +388,7 @@ namespace Lexical_Analyzer
 
             string strlit = "";
 
-            Boolean hasToken = false, validstr = false, numNext = true, decLit = false, numLit = false, isNum = true;
+            Boolean hasToken = false, validstr = false, numNext = true, decLit = false, numLit = false, isNum = true, isStr = true;
 
             int ctr = 0, digitNum = 0, digitDec = 0;
 
@@ -384,19 +418,24 @@ namespace Lexical_Analyzer
                             strlit += txt[ctr];
                             ctr++;
                         }
+                        
+                        if (ctr + 1 == txt.Length) isStr = false;
 
-                        if (txt.ElementAt(0).Equals('"') && txt.ElementAt(ctr+1).Equals('"'))
+                        if (isStr)
                         {
-                            ctr+=2;
-                            validstr = true;
-                            foreach (char delim in delims)
+                            if (txt.ElementAt(0).Equals('"') && txt.ElementAt(ctr + 1).Equals('"'))
                             {
-                                if(txt.Length >= ctr + 1)
+                                ctr += 2;
+                                validstr = true;
+                                foreach (char delim in delims)
                                 {
-                                    if (txt.ElementAt(ctr).Equals(delim))
+                                    if (txt.Length >= ctr + 1)
                                     {
-                                        hasToken = true;
-                                        break;
+                                        if (txt.ElementAt(ctr).Equals(delim))
+                                        {
+                                            hasToken = true;
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -411,7 +450,7 @@ namespace Lexical_Analyzer
                         else if (!hasToken && validstr)
                         {
                             hasToken = true;
-                            token.setTokens("No Delimeter");
+                            token.setTokens("No Delimiter");
                             token.setLexemes(txt.Substring(0, ctr));
                             token.setDescription("stringlit");
                             tokens.Add(token);
@@ -443,6 +482,10 @@ namespace Lexical_Analyzer
                                     {
                                         numNext = false;
                                     }
+                                }
+                                else
+                                {
+                                    numNext = false;
                                 }
                             }
                         }
@@ -645,8 +688,8 @@ namespace Lexical_Analyzer
 
                 if (moreThan)
                 {
-                    token.setTokens("Exceeded");
-                    token.setLexemes(txt.Substring(0, (ctr + 1)));
+                    token.setTokens("I Exceeded");
+                    token.setLexemes(txt.Substring(0, (ctr)));
                     token.setDescription("identifier" + idNum);
                     tokens.Add(token);
                     idNum++;

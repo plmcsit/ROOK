@@ -16,8 +16,13 @@ namespace Lexical_Analyzer
 
             while(!code.Equals(""))
             {
-                if (lex.isSpace(code)) code = code.Remove(0, lex.ctra);
+                if (lex.isSpace(code, toks))
+                {
+                    code = code.Remove(0, lex.ctra);
+                    toks--;
+                }
                 else if (lex.ReservedWords(code)) code = code.Remove(0, lex.ctra);
+                else if (lex.Comment(code)) code = code.Remove(0, lex.ctra);
                 else if (lex.ReservedSymbols(code)) code = code.Remove(0, lex.ctra);
                 else if (lex.hasLiterals(code)) code = code.Remove(0, lex.ctra);
                 else if (lex.hasIdentifier(code)) code = code.Remove(0, lex.ctra);
@@ -41,6 +46,7 @@ namespace Lexical_Analyzer
                     lex.tokens.Add(t);
                     code = code.Remove(0, lex.ctra);
                 }
+                toks++;
             }
 
 

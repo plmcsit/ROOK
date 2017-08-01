@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ROOK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User32.cs" />
     <EmbeddedResource Include="ROOK.resx">
       <DependentUpon>ROOK.cs</DependentUpon>
     </EmbeddedResource>
