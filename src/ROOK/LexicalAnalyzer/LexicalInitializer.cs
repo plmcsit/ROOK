@@ -22,6 +22,7 @@ namespace Lexical_Analyzer
                     toks--;
                 }
                 else if (lex.ReservedWords(code)) code = code.Remove(0, lex.ctra);
+                else if (lex.Comment(code)) code = code.Remove(0, lex.ctra);
                 else if (lex.ReservedSymbols(code)) code = code.Remove(0, lex.ctra);
                 else if (lex.hasLiterals(code)) code = code.Remove(0, lex.ctra);
                 else if (lex.hasIdentifier(code)) code = code.Remove(0, lex.ctra);

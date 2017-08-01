@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Code = new System.Windows.Forms.TextBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.gvLexical = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,20 +37,10 @@
             this.gvLexicalErrors = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.richTextBoxEx1 = new Ionic.WinForms.RichTextBoxEx();
+            this.txtCode = new Ionic.WinForms.RichTextBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Code
-            // 
-            this.Code.BackColor = System.Drawing.SystemColors.Info;
-            this.Code.Location = new System.Drawing.Point(4, 4);
-            this.Code.Multiline = true;
-            this.Code.Name = "Code";
-            this.Code.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Code.Size = new System.Drawing.Size(511, 554);
-            this.Code.TabIndex = 0;
             // 
             // btnRun
             // 
@@ -138,51 +127,48 @@
             this.Errors.ReadOnly = true;
             this.Errors.Width = 268;
             // 
-            // richTextBoxEx1
+            // txtCode
             // 
-            this.richTextBoxEx1.AcceptsTab = true;
-            this.richTextBoxEx1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxEx1.Location = new System.Drawing.Point(12, 38);
-            this.richTextBoxEx1.Name = "richTextBoxEx1";
-            this.richTextBoxEx1.NumberAlignment = System.Drawing.StringAlignment.Center;
-            this.richTextBoxEx1.NumberBackground1 = System.Drawing.SystemColors.ControlLight;
-            this.richTextBoxEx1.NumberBackground2 = System.Drawing.SystemColors.Window;
-            this.richTextBoxEx1.NumberBorder = System.Drawing.SystemColors.ControlDark;
-            this.richTextBoxEx1.NumberBorderThickness = 1F;
-            this.richTextBoxEx1.NumberColor = System.Drawing.Color.DarkGray;
-            this.richTextBoxEx1.NumberFont = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxEx1.NumberLeadingZeroes = false;
-            this.richTextBoxEx1.NumberLineCounting = Ionic.WinForms.RichTextBoxEx.LineCounting.CRLF;
-            this.richTextBoxEx1.NumberPadding = 2;
-            this.richTextBoxEx1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.richTextBoxEx1.ShowLineNumbers = true;
-            this.richTextBoxEx1.Size = new System.Drawing.Size(473, 438);
-            this.richTextBoxEx1.TabIndex = 4;
-            this.richTextBoxEx1.Text = "";
+            this.txtCode.AcceptsTab = true;
+            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtCode.Location = new System.Drawing.Point(0, 0);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.NumberAlignment = System.Drawing.StringAlignment.Center;
+            this.txtCode.NumberBackground1 = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtCode.NumberBackground2 = System.Drawing.SystemColors.MenuText;
+            this.txtCode.NumberBorder = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtCode.NumberBorderThickness = 5F;
+            this.txtCode.NumberColor = System.Drawing.Color.White;
+            this.txtCode.NumberFont = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.NumberLeadingZeroes = false;
+            this.txtCode.NumberLineCounting = Ionic.WinForms.RichTextBoxEx.LineCounting.CRLF;
+            this.txtCode.NumberPadding = 5;
+            this.txtCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCode.ShowLineNumbers = true;
+            this.txtCode.Size = new System.Drawing.Size(517, 542);
+            this.txtCode.TabIndex = 5;
+            this.txtCode.Text = "";
             // 
             // ROOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(832, 563);
-            this.Controls.Add(this.richTextBoxEx1);
+            this.ClientSize = new System.Drawing.Size(839, 542);
+            this.Controls.Add(this.txtCode);
             this.Controls.Add(this.gvLexicalErrors);
             this.Controls.Add(this.gvLexical);
             this.Controls.Add(this.btnRun);
-            this.Controls.Add(this.Code);
             this.Name = "ROOK";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Code;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.DataGridView gvLexical;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -192,7 +178,7 @@
         private System.Windows.Forms.DataGridView gvLexicalErrors;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Errors;
-        private Ionic.WinForms.RichTextBoxEx richTextBoxEx1;
+        private Ionic.WinForms.RichTextBoxEx txtCode;
     }
 }
 
