@@ -34,10 +34,14 @@ namespace Lexical_Analyzer
         public class ReservedSymbols
         {
             public List<string> rs_2 = new List<string> { "!" };
-            public List<string> rs_5 = new List<string> { "!=", "=", "==", "[" };
+            public List<string> rs_5 = new List<string> { "!=", "==", "[" };
             public List<string> rs_7 = new List<string> { "," };
             public List<string> rs_8 = new List<string> { "]" };
             public List<string> rs_9 = new List<string> { ")" };
+            public List<string> rs_11 = new List<string> { "{" };
+            public List<string> rs_12 = new List<string> { "}" };
+            public List<string> rs_13 = new List<string> { "=" };
+            public List<string> rs_14 = new List<string> { ":" };
             public List<string> rs_whitespace = new List<string> { "." };
             public List<string> rs_arithop = new List<string> { "+", "+=", "-", "-=", "*", "*=", "/", "/="
                                     , ">", ">=", "<", "<=", "(", "%" };
@@ -52,17 +56,27 @@ namespace Lexical_Analyzer
             public List<char> delim_5 = new List<char> { '\r', '\n', '\t', ' ', '(', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
                                             , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
                                             , 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '"' };
-            public List<char> delim_incop = new List<char> { '\r', '\n', '\t', ' ', '(', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
+            public List<char> delim_incop = new List<char> { '\r', '\n', '\t', ' ', '(', ')', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
                                             , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
                                             , 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ',' };
             public List<char> delim_7 = new List<char> { '\r','\n', '\t', ' ', '(', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
                                             , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
-                                            , 'w', 'x', 'y', 'z', '+', '-' };
+                                            , 'w', 'x', 'y', 'z', '+', '-','"','0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             public List<char> delim_8 = new List<char> { '\r', ',', '.', '\n', '\t', ' ', '!', '=', ')', '>', '<', '+', '-', '*', '/', '%' };
             public List<char> delim_9 = new List<char> { '\n', '\t', ' ', '.', ',', ')', '!', '=', '+', '-', '*', '/', '%', '>', '<'
                                                 , 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
                                             , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
                                             , 'w', 'x', 'y', 'z', ']' };
+            public List<char> delim_11 = new List<char> { '\r', '\n', '\t', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
+                                            , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
+                                            , 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'F', '{', '}','"' };
+            public List<char> delim_12 = new List<char> { ' ', '\r', '\n', '\t', '.', ',', '}' };
+            public List<char> delim_13 = new List<char> { '\r', '\n', '\t', ' ', '(', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
+                                            , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
+                                            , 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '"', '{' };
+            public List<char> delim_14 = new List<char> { '\r','\n', '\t', ' ', '(', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
+                                            , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
+                                            , 'w', 'x', 'y', 'z', '+', '-' };
             public List<char> delim_lower = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
                                             , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u','v'
                                             , 'w', 'x', 'y', 'z'};
@@ -75,14 +89,14 @@ namespace Lexical_Analyzer
         }
         public class Literals
         {
-            public List<char> number = new List<char> { '~', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            public List<char> number = new List<char> {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             public List<char> num = new List<char> { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         }
         public class LiteralsDelim
         {
-            public List<string> delim_str = new List<string> { "nl", "tab", " ", ".", ",", ")", "=", "!" };
-            public List<char> delim_dec = new List<char> { ' ', '\r', '\n', '\t', '.', ',', ')', '=', '!', '+', '-', '*', '/', '%', '>', '<' };
-            public List<char> delim_num = new List<char> { ' ', '\r', '\n', '\t', '.', ',', ')', '=', '!', '+', '-', '*', '/', '%', '>', '<', ']', ':' };
+            public List<char> delim_str = new List<char> { '\n', '\t', ' ', '.', ',', ')', '=', '!',':','}' };
+            public List<char> delim_dec = new List<char> { ' ', '\r', '\n', '\t', '.', ',', ')', '=', '!', '+', '-', '*', '/', '%', '>', '<','}' };
+            public List<char> delim_num = new List<char> { ' ', '\r', '\n', '\t', '.', ',', ')', '=', '!', '+', '-', '*', '/', '%', '>', '<', ']', ':','}' };
         }
         // Identifiers
         public class Identifiers
@@ -100,7 +114,7 @@ namespace Lexical_Analyzer
         public class IdentifiersDelims
         {
             public List<char> delim_id = new List<char> { '\n', '\r', ' ', '.', ',', ')', '+', '-', '*', '/', '%', ':', '='
-                                                , '!', '>', '<', '[', ']', '@', '(' };
+                                                , '!', '>', '<', '[', ']', '@', '(','}' };
         }
     }
 }
