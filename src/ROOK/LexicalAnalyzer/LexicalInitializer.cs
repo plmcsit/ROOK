@@ -80,14 +80,14 @@ namespace Lexical_Analyzer
             Boolean ifEnd = false;
             int ctr = 0;
 
-            foreach (var item in rwd.rw_ender)
+            foreach (var item in rwd.whitespace)
             {
                 if (txt.ElementAt(ctr) == item)
                     ifEnd = true;
             }
             while (ifEnd != true)
             {
-                foreach (var item in rwd.rw_ender)
+                foreach (var item in rwd.whitespace)
                 {
                     if ((txt.Length) > ctr)
                     {
