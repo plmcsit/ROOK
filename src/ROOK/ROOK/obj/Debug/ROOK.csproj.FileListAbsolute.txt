@@ -24,3 +24,14 @@ D:\PLMCSIT\ROOK\src\ROOK\ROOK\obj\Debug\ROOK.Properties.Resources.resources
 D:\PLMCSIT\ROOK\src\ROOK\ROOK\obj\Debug\ROOK.csproj.GenerateResource.Cache
 D:\PLMCSIT\ROOK\src\ROOK\ROOK\obj\Debug\ROOK.exe
 D:\PLMCSIT\ROOK\src\ROOK\ROOK\obj\Debug\ROOK.pdb
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.Charts.Design.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar.Charts.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar.Keyboard.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar.Layout.Design.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar.Layout.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar.Schedule.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar.SuperGrid.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.DotNetBar2.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.Instrumentation.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.SuperGrid.Design.dll
+D:\PLMCSIT\ROOK\src\ROOK\ROOK\bin\Debug\DevComponents.TreeGX.dll

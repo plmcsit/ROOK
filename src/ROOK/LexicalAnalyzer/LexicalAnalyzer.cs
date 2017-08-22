@@ -18,6 +18,7 @@ namespace Lexical_Analyzer
         public List<int> linetokens = new List<int>();
         public int ctra = 0, choice = 0;
         int idNum = 1, lines = 1;
+        Boolean checkEnd = false;
 
         public Boolean isSpace(string txt, int tnum)
         {
@@ -44,6 +45,7 @@ namespace Lexical_Analyzer
 
         public Boolean ReservedWords(string txt)
         {
+            LexicalInitializer lexI = new LexicalInitializer();
             LexicalConstants.ReservedWords resWord = new LexicalConstants.ReservedWords();
             LexicalConstants.ReservedWordsDelim resWordDelim = new LexicalConstants.ReservedWordsDelim();
             Tokens token = new Tokens();
@@ -136,6 +138,7 @@ namespace Lexical_Analyzer
                                         wordComp = txt.Substring(0, ctr+1);
                                         if(word == wordComp)
                                         {
+                                            if (word == "END!") checkEnd = true;
                                             foreach (char delim in delims)
                                             {
                                                 if ((txt.Length - 1) > ctr)
@@ -736,6 +739,11 @@ namespace Lexical_Analyzer
             }
             ctra = ctr;
             return hasToken;
+        }
+
+        public Boolean isEnd()
+        {
+            return checkEnd;
         }
     }
 }

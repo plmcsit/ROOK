@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 using Token_Library;
 using Lexical_Analyzer;
+using System.Collections;
 
 namespace ROOK
 {
-    public partial class ROOK : Form
+    public partial class ROOK : DevComponents.DotNetBar.Metro.MetroAppForm
     {
         public ROOK()
         {
             InitializeComponent();
+            forDesign();
+           
         }
 
-        private void btnRun_Click(object sender, EventArgs e)
+        private void btnRn_Click_1(object sender, EventArgs e)
         {
             LexicalInitializer lexical = new LexicalInitializer();
             LexicalAnalyzer lex = new LexicalAnalyzer();
@@ -28,8 +31,8 @@ namespace ROOK
             {
                 string code = txtCode.Text;
                 lex = lexical.Start(code, lex);
-                 DisplayLexical(lex);
-            } 
+                DisplayLexical(lex);
+            }
             else
             {
                 // Show Error Message
@@ -83,6 +86,15 @@ namespace ROOK
                     gvLexical.Rows.Add(id, token.getTokens(), token.getLexemes(), token.getDescription());
                 }
             }
+
+            lblStatus.Text = "Lexical Completed";
         }
+
+        private void forDesign()
+        {
+            gvLexicalErrors.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft YaHei UI",8 );
+            gvLexical.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft YaHei UI", 8);
+        }
+        
     }
 }

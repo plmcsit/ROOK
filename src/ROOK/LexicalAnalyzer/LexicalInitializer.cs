@@ -9,12 +9,14 @@ namespace Lexical_Analyzer
     public class LexicalInitializer
     {
         public int toks = 0;
+        Boolean isEnd;
 
         public LexicalAnalyzer Start(string code, LexicalAnalyzer lex)
         {
             Tokens t = new Tokens();
-
-            while(!code.Equals(""))
+            Boolean d;
+           
+            while((!code.Equals(""))&&(!isEnd))
             {
                 if (lex.isSpace(code, toks))
                 {
@@ -47,6 +49,7 @@ namespace Lexical_Analyzer
                     code = code.Remove(0, lex.ctra);
                 }
                 toks++;
+                isEnd = lex.isEnd();
             }
 
 
@@ -132,5 +135,7 @@ namespace Lexical_Analyzer
             }
             return ctr;
         }
+
+       
 }
 }
