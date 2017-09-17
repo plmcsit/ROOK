@@ -64,26 +64,10 @@ namespace ROOK
                                 + " on line "
                                 + token.getLines() + "\n");
                 }
-                else if (token.getTokens() == "I Exceeded")
-                {
-                    error++;
-                    gvLexicalErrors.Rows.Add(error, "Identifier exceeded: "
-                                + token.getLexemes()
-                                + " on line "
-                                + token.getLines() + "\n");
-                }
-                else if (token.getTokens() == "Over the limit")
-                {
-                    error++;
-                    gvLexicalErrors.Rows.Add(error, "Literal exceeded: "
-                                + token.getLexemes()
-                                + " on line "
-                                + token.getLines() + "\n");
-                }
                 else
                 {
                     id++;
-                    gvLexical.Rows.Add(id, token.getTokens(), token.getLexemes(), token.getDescription());
+                    gvLexical.Rows.Add(id, token.getLexemes(), token.getTokens(), token.getDescription());
                 }
             }
 

@@ -36,8 +36,6 @@
             this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gvLexicalErrors = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCode = new Ionic.WinForms.RichTextBoxEx();
             this.btnRun = new DevComponents.DotNetBar.ButtonX();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
@@ -51,25 +49,40 @@
             this.lblStatus = new DevComponents.DotNetBar.LabelItem();
             this.label2 = new System.Windows.Forms.Label();
             this.lblLexError = new DevComponents.DotNetBar.LabelX();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.st_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.st_Production = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.st_Point = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.st_Sets = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.se_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.se_Line = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.se_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.se_Errors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // gvLexical
             // 
             this.gvLexical.AllowUserToAddRows = false;
             this.gvLexical.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.gvLexical.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvLexical.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvLexical.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Lexeme,
             this.Token,
             this.Description});
-            this.gvLexical.Location = new System.Drawing.Point(1, 506);
+            this.gvLexical.Location = new System.Drawing.Point(816, 85);
             this.gvLexical.Name = "gvLexical";
             this.gvLexical.RowHeadersVisible = false;
-            this.gvLexical.Size = new System.Drawing.Size(337, 150);
+            this.gvLexical.Size = new System.Drawing.Size(405, 178);
             this.gvLexical.TabIndex = 2;
             // 
             // ID
@@ -87,6 +100,7 @@
             this.Lexeme.HeaderText = "Lexeme";
             this.Lexeme.Name = "Lexeme";
             this.Lexeme.ReadOnly = true;
+            this.Lexeme.Width = 160;
             // 
             // Token
             // 
@@ -94,6 +108,7 @@
             this.Token.HeaderText = "Token";
             this.Token.Name = "Token";
             this.Token.ReadOnly = true;
+            this.Token.Width = 130;
             // 
             // Description
             // 
@@ -101,35 +116,21 @@
             this.Description.HeaderText = "Description";
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
+            this.Description.Width = 130;
             // 
             // gvLexicalErrors
             // 
             this.gvLexicalErrors.AllowUserToAddRows = false;
             this.gvLexicalErrors.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.gvLexicalErrors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvLexicalErrors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvLexicalErrors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.Errors});
-            this.gvLexicalErrors.Location = new System.Drawing.Point(345, 506);
+            this.gvLexicalErrors.Location = new System.Drawing.Point(11, 506);
             this.gvLexicalErrors.Name = "gvLexicalErrors";
             this.gvLexicalErrors.RowHeadersVisible = false;
-            this.gvLexicalErrors.Size = new System.Drawing.Size(302, 150);
+            this.gvLexicalErrors.Size = new System.Drawing.Size(623, 150);
             this.gvLexicalErrors.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 30;
-            // 
-            // Errors
-            // 
-            this.Errors.HeaderText = "Errors";
-            this.Errors.Name = "Errors";
-            this.Errors.ReadOnly = true;
-            this.Errors.Width = 268;
             // 
             // txtCode
             // 
@@ -152,7 +153,7 @@
             this.txtCode.NumberPadding = 3;
             this.txtCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtCode.ShowLineNumbers = true;
-            this.txtCode.Size = new System.Drawing.Size(642, 412);
+            this.txtCode.Size = new System.Drawing.Size(809, 412);
             this.txtCode.TabIndex = 5;
             this.txtCode.Text = "";
             // 
@@ -202,7 +203,7 @@
             this.metroShell1.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
             this.metroShell1.Location = new System.Drawing.Point(1, 1);
             this.metroShell1.Name = "metroShell1";
-            this.metroShell1.Size = new System.Drawing.Size(651, 23);
+            this.metroShell1.Size = new System.Drawing.Size(1223, 23);
             this.metroShell1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
             this.metroShell1.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
             this.metroShell1.SystemText.QatAddItemText = "&Add to Quick Access Toolbar";
@@ -264,7 +265,7 @@
             this.lblStatus});
             this.metroStatusBar1.Location = new System.Drawing.Point(1, 662);
             this.metroStatusBar1.Name = "metroStatusBar1";
-            this.metroStatusBar1.Size = new System.Drawing.Size(651, 22);
+            this.metroStatusBar1.Size = new System.Drawing.Size(1223, 22);
             this.metroStatusBar1.TabIndex = 9;
             this.metroStatusBar1.Text = "metroStatusBar1";
             // 
@@ -278,7 +279,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(-3, 477);
+            this.label2.Location = new System.Drawing.Point(847, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(338, 23);
             this.label2.TabIndex = 12;
@@ -299,7 +300,7 @@
             this.lblLexError.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLexError.FontBold = true;
             this.lblLexError.ForeColor = System.Drawing.Color.Black;
-            this.lblLexError.Location = new System.Drawing.Point(345, 478);
+            this.lblLexError.Location = new System.Drawing.Point(170, 477);
             this.lblLexError.Name = "lblLexError";
             this.lblLexError.SingleLineColor = System.Drawing.Color.White;
             this.lblLexError.Size = new System.Drawing.Size(298, 23);
@@ -307,12 +308,150 @@
             this.lblLexError.Text = "LEXICAL ERROR";
             this.lblLexError.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.st_ID,
+            this.st_Production,
+            this.st_Point,
+            this.st_Sets});
+            this.dataGridView1.Location = new System.Drawing.Point(816, 304);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(405, 167);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.se_Id,
+            this.se_Line,
+            this.se_Column,
+            this.se_Errors});
+            this.dataGridView2.Location = new System.Drawing.Point(640, 506);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(581, 150);
+            this.dataGridView2.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(847, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(338, 35);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "SYNTAX TABLE";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelX1
+            // 
+            this.labelX1.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelX1.BackgroundStyle.BorderColor = System.Drawing.Color.Maroon;
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.BackgroundStyle.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.EnableMarkup = false;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.FontBold = true;
+            this.labelX1.ForeColor = System.Drawing.Color.Black;
+            this.labelX1.Location = new System.Drawing.Point(784, 477);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.SingleLineColor = System.Drawing.Color.White;
+            this.labelX1.Size = new System.Drawing.Size(298, 23);
+            this.labelX1.TabIndex = 17;
+            this.labelX1.Text = "SYNTAX ERROR";
+            this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // st_ID
+            // 
+            this.st_ID.HeaderText = "ID";
+            this.st_ID.Name = "st_ID";
+            this.st_ID.ReadOnly = true;
+            this.st_ID.Width = 30;
+            // 
+            // st_Production
+            // 
+            this.st_Production.HeaderText = "Productions";
+            this.st_Production.Name = "st_Production";
+            this.st_Production.ReadOnly = true;
+            this.st_Production.Width = 150;
+            // 
+            // st_Point
+            // 
+            this.st_Point.HeaderText = "->";
+            this.st_Point.Name = "st_Point";
+            this.st_Point.ReadOnly = true;
+            this.st_Point.Width = 40;
+            // 
+            // st_Sets
+            // 
+            this.st_Sets.HeaderText = "Sets";
+            this.st_Sets.Name = "st_Sets";
+            this.st_Sets.ReadOnly = true;
+            this.st_Sets.Width = 182;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // Errors
+            // 
+            this.Errors.HeaderText = "Errors";
+            this.Errors.Name = "Errors";
+            this.Errors.ReadOnly = true;
+            this.Errors.Width = 590;
+            // 
+            // se_Id
+            // 
+            this.se_Id.HeaderText = "ID";
+            this.se_Id.Name = "se_Id";
+            this.se_Id.ReadOnly = true;
+            this.se_Id.Width = 30;
+            // 
+            // se_Line
+            // 
+            this.se_Line.HeaderText = "Line";
+            this.se_Line.Name = "se_Line";
+            this.se_Line.ReadOnly = true;
+            this.se_Line.Width = 50;
+            // 
+            // se_Column
+            // 
+            this.se_Column.HeaderText = "Column";
+            this.se_Column.Name = "se_Column";
+            this.se_Column.ReadOnly = true;
+            this.se_Column.Width = 50;
+            // 
+            // se_Errors
+            // 
+            this.se_Errors.HeaderText = "Errors";
+            this.se_Errors.Name = "se_Errors";
+            this.se_Errors.ReadOnly = true;
+            this.se_Errors.Width = 447;
+            // 
             // ROOK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(653, 685);
+            this.ClientSize = new System.Drawing.Size(1225, 685);
+            this.Controls.Add(this.labelX1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblLexError);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.metroStatusBar1);
@@ -329,19 +468,15 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.gvLexical)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLexicalErrors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView gvLexical;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lexeme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Token;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridView gvLexicalErrors;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Errors;
         private Ionic.WinForms.RichTextBoxEx txtCode;
         private DevComponents.DotNetBar.ButtonX btnRun;
         private DevComponents.DotNetBar.StyleManager styleManager1;
@@ -355,6 +490,24 @@
         private DevComponents.DotNetBar.LabelItem lblStatus;
         private System.Windows.Forms.Label label2;
         private DevComponents.DotNetBar.LabelX lblLexError;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lexeme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Token;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Errors;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn st_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn st_Production;
+        private System.Windows.Forms.DataGridViewTextBoxColumn st_Point;
+        private System.Windows.Forms.DataGridViewTextBoxColumn st_Sets;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn se_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn se_Line;
+        private System.Windows.Forms.DataGridViewTextBoxColumn se_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn se_Errors;
+        private System.Windows.Forms.Label label1;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }
 

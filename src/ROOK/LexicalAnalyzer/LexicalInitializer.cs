@@ -30,6 +30,7 @@ namespace Lexical_Analyzer
                 else if (lex.hasIdentifier(code)) code = code.Remove(0, lex.ctra);
                 else
                 {
+                    Console.Write(lex.ctra);
                     t = new Tokens();
                     if (lex.choice != 0)
                     {
@@ -87,6 +88,7 @@ namespace Lexical_Analyzer
             {
                 if (txt.ElementAt(ctr) == item)
                     ifEnd = true;
+
             }
             while (ifEnd != true)
             {

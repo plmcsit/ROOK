@@ -48,13 +48,14 @@ namespace Lexical_Analyzer
             LexicalInitializer lexI = new LexicalInitializer();
             LexicalConstants.ReservedWords resWord = new LexicalConstants.ReservedWords();
             LexicalConstants.ReservedWordsDelim resWordDelim = new LexicalConstants.ReservedWordsDelim();
+            LexicalConstants.ReservedSymbolsDelims rs = new LexicalConstants.ReservedSymbolsDelims();
             Tokens token = new Tokens();
             
             List<string> words = new List<string>();
             List<char> delims = new List<char>();
             List<string> temp = new List<string>();
 
-            Boolean hasReservedWord = false, hasToken = false, exit = false;
+            Boolean hasReservedWord = false, hasToken = false, exit = false, noDelim = true, ifEnd = false;
 
             int limit = 0, flag = -1, ctr=0;
             string wordComp;
@@ -147,6 +148,7 @@ namespace Lexical_Analyzer
                                                     if (txt[flag + 1] == delim)
                                                     {
                                                         hasToken = true;
+                                                        noDelim = false;
                                                         if ((word == "true") || (word == "false"))
                                                         {
                                                             token.setTokens("booleanlit");
@@ -167,6 +169,7 @@ namespace Lexical_Analyzer
                                             {
                                                 hasToken = true;
                                                 hasReservedWord = true;
+                                                noDelim = false;
                                                 token.setTokens("No Delimiter");
                                                 token.setLexemes(word);
                                                 token.setDescription(word);
@@ -197,7 +200,32 @@ namespace Lexical_Analyzer
                 if (exit) break;
             }
 
-
+            if (hasReservedWord == false)
+            {
+                hasToken = false;
+                foreach (var item in resWordDelim.rw_ender)
+                {
+                    if (txt.ElementAt(ctr - 1) == item)
+                        ifEnd = true;
+                }
+                while (ifEnd != true)
+                {
+                    foreach (var item in resWordDelim.rw_ender)
+                    {
+                        if ((txt.Length) > ctr)
+                        {
+                            if (txt.ElementAt(ctr) == item)
+                            {
+                                ifEnd = true;
+                                break;
+                            }
+                        }
+                        else ifEnd = true;
+                    }
+                    if (ifEnd != true)
+                        ctr++;
+                }
+            }  
 
             ctra = ctr;
             return hasToken;
@@ -205,6 +233,7 @@ namespace Lexical_Analyzer
 
         public Boolean Comment(string txt)
         {
+            Tokens token = new Tokens();
             int ctr=0;
             Boolean isComment = false, endComment = false;
             if (txt.Length > 2)
@@ -228,7 +257,15 @@ namespace Lexical_Analyzer
                     lines++;
                 }
             }
-            ctra = ctr;
+            if (isComment)
+            {
+                ctra = ctr;
+                token.setTokens("comment");
+                token.setLexemes(txt.Substring(0, ctr));
+                token.setDescription("comment");
+                tokens.Add(token);
+            }
+
             return isComment;
         }
 
@@ -349,7 +386,7 @@ namespace Lexical_Analyzer
                         break;
                     case 12:
                         sym = resSym.rs_14;
-                        delims = resSymDelim.delim_14;
+                        delims = resWordDelim.whitespace;
                         break;
                     default:
                         break;
@@ -404,7 +441,7 @@ namespace Lexical_Analyzer
                 }
                 if (exit) break;
             }
-            ctra = ctr;
+            if(hasToken) ctra = ctr;
             return hasToken;
         } 
 
@@ -430,11 +467,23 @@ namespace Lexical_Analyzer
             {
                 foreach (char num in lit.number)
                 {
-                    if(txt.ElementAt(0) == num)
+                    if (txt.ElementAt(0) == '~')
                     {
-                        choice = 2;
-                        break;
+                        if (txt.ElementAt(1) == num)
+                        {
+                            choice = 2;
+                            break;
+                        }
                     }
+                    else
+                    {
+                        if (txt.ElementAt(0) == num)
+                        {
+                            choice = 2;
+                            break;
+                        }
+                    }        
+
                 }
             }
 
@@ -445,8 +494,29 @@ namespace Lexical_Analyzer
                     {
                         while ((txt.Length - 1) > ctr && !txt.ElementAt(ctr+1).Equals('"'))
                         {
-                            strlit += txt[ctr];
-                            ctr++;
+                            if (txt.ElementAt(ctr + 1).Equals('\\') && txt.ElementAt(ctr + 2).Equals('"'))
+                            {
+                                strlit += txt[ctr];
+                                strlit += txt[ctr + 2];
+                                ctr += 2;
+                            }
+                            else if (txt.ElementAt(ctr + 1).Equals('\\') && txt.ElementAt(ctr + 2).Equals('n'))
+                            {
+                                strlit += txt[ctr];
+                                strlit += txt[ctr + 2];
+                                ctr += 2;
+                            }
+                            else if (txt.ElementAt(ctr + 1).Equals('\\') && txt.ElementAt(ctr + 2).Equals('t'))
+                            {
+                                strlit += txt[ctr];
+                                strlit += txt[ctr + 2];
+                                ctr += 2;
+                            }
+                            else
+                            {
+                                strlit += txt[ctr];
+                                ctr++;
+                            }
                         }
                         
                         if (ctr + 1 == txt.Length) isStr = false;
@@ -456,6 +526,7 @@ namespace Lexical_Analyzer
                             if (txt.ElementAt(0).Equals('"') && txt.ElementAt(ctr + 1).Equals('"'))
                             {
                                 ctr += 2;
+                                strlit += '"';
                                 validstr = true;
                                 foreach (char delim in litDelim.delim_str)
                                 {
@@ -586,9 +657,9 @@ namespace Lexical_Analyzer
                   
                     if (numLit && digitNum > 9)
                     {
-                        if ((isNeg == true) && (numLit && digitNum <= 10)) break;
+                       // if ((isNeg == true) && (numLit && digitNum <= 10)) break;
                         hasToken = true;
-                        token.setTokens("Over the limit");
+                        token.setTokens("INVALID");
                         token.setLexemes(txt.Substring(0, ctr));
                         token.setDescription("numberlit");
                         tokens.Add(token);
@@ -608,6 +679,7 @@ namespace Lexical_Analyzer
                         }
                         if (hasToken)
                         {
+                            hasToken = true;
                             token.setTokens("numberlit");
                             token.setLexemes(txt.Substring(0, ctr));
                             token.setDescription("numberlit");
@@ -624,11 +696,12 @@ namespace Lexical_Analyzer
                     }
                     else if(decLit && ((digitNum > 9) || digitDec > 5))
                     {
-                        if ((isNeg == true) && decLit && ((digitNum <= 10) && digitDec <= 5)) break;
-                        token.setTokens("decimallit");
+                       // if ((isNeg == true) && decLit && ((digitNum <= 10) && digitDec <= 5)) break;
+                        token.setTokens("INVALID");
                         token.setLexemes(txt.Substring(0, ctr));
                         token.setDescription("decimallit");
                         tokens.Add(token);
+                        hasToken = true;
                     }
                     else if (decLit)
                     {
@@ -663,7 +736,7 @@ namespace Lexical_Analyzer
                     break;
             }
 
-            ctra = ctr;
+            if(hasToken) ctra = ctr;
             return hasToken;
         }
         public Boolean hasIdentifier(string txt)
@@ -721,7 +794,7 @@ namespace Lexical_Analyzer
 
                 if (moreThan)
                 {
-                    token.setTokens("I Exceeded");
+                    token.setTokens("INVALID");
                     token.setLexemes(txt.Substring(0, (ctr)));
                     token.setDescription("identifier" + idNum);
                     tokens.Add(token);
@@ -737,7 +810,7 @@ namespace Lexical_Analyzer
                     idNum++;
                 }
             }
-            ctra = ctr;
+            if(hasToken) ctra = ctr;
             return hasToken;
         }
 
